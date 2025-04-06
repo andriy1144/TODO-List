@@ -7,16 +7,16 @@ dotenv.config();
 
 //Configuration of express.js and its middlewares
 const app = express();
+app.use(express.static("public"));
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-//REQUESTS
+//Requests
 app.get("/", (req,res) => {
-    res.send("Hello Node!");
+    res.render("home.ejs", {pageTitle: "Homepage"});
 });
-
 
 
 app.listen(port, () => {

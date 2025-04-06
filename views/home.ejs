@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+    <div class="head">
+        <h1>TODO LIST</h1>
+        <div class="search-field">
+            <input class="search" type="text" name="search-note" placeholder="Search task...">
+            <select class="select" name="filter-note" id="filter">
+                <option value="all" selected>ALL</option>
+                <option value="complete">COMPLETE</option>
+                <option value="incomplete">INCOMPLETE</option>
+            </select>
+            <button class="theme-changer"><img src="/static/icons/moon.svg" alt="moon icon"></button>
+        </div>
+    </div>
+
+    <div class="projects-list">
+        <div class="projects">
+            <div class="project">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

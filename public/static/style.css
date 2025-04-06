@@ -1,0 +1,144 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --konit-font: "Kanit", sans-serif;
+    --inter-font: "Inter", sans-serif;
+
+    --main-purple: #6C63FF;
+    --white: #F7F7F7;
+    --blakc: #252525;
+    --placeholder-color: #C3C1E5;
+}
+
+::selection{
+    background-color:var(--main-purple);
+    color: var(--white);
+}
+*{
+    cursor: url("/static/icons/cursor-pointer.png"), auto;
+}
+/* Homepage styles */
+.container{
+    width: 50%;
+    margin: 0 auto;
+    height: 100vh;
+
+    font-family: var(--konit-font);
+    font-size:26px;
+}
+
+.head{
+    margin-top: 50px;
+}
+
+.head > h1{
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.search-field{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.search{
+    flex: 2;
+    flex-shrink: 1;
+
+    height: 40px;
+    outline: none;
+    border: 2px solid var(--main-purple);
+    border-radius: 5px;
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--inter-font);
+    font-style: normal;
+
+    background-image: url("/static/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: 98%, center;
+
+    color:var(--main-purple);
+}
+.search::placeholder{
+    color: var(--placeholder-color);
+}
+.select{
+    width: 85px;
+    height: 40px;
+    outline: none;
+    background-color: var(--main-purple);
+    border: none;
+    border-radius: 5px;
+
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+
+    color:white;
+
+    padding: 10px;
+}
+.theme-changer{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 38px;
+    
+    background-color: var(--main-purple);
+}
