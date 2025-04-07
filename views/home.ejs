@@ -14,6 +14,7 @@
         </div>
     </div>
 
+    <% if(locals.project){ %>
     <div class="projects-list">
         <div class="projects">
             <div class="project">
@@ -21,6 +22,12 @@
             </div>
         </div>
     </div>
+    <% }else{ %>
+        <div class="no-note">
+            <div class="no-note-image"></div>
+            <p class="no-note-text">Empty...</p>
+        </div>
+    <% } %>
 </section>
 
 <%- include("partials/footer.ejs") %>
