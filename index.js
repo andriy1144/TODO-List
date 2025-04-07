@@ -13,9 +13,25 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 
 
+// TEST DATA
+const customProjects = [
+    {
+        name: "Note #1",
+        isDone:false,
+    },
+    {
+        name: "Note #2",
+        isDone:true,
+    },
+    {
+        name: "Note #3",
+        isDone:false,
+    }
+]
+
 //Requests
 app.get("/", (req,res) => {
-    res.render("home.ejs", {pageTitle: "Homepage"});
+    res.render("home.ejs", {pageTitle: "Homepage", projects: customProjects});
 });
 
 

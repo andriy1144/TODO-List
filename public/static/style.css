@@ -162,3 +162,103 @@ table {
     font-weight: 400;
     font-style: normal;
 }
+
+
+/* PROJECT SECTION */
+.projects-list{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* CUSTOM CHECKBOX */
+.project{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+.project:hover > .edit-pen-icon,
+.project:hover > .trash-icon {
+    display: block;
+}
+
+.checkbox-container{
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    font-size: 22px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex: 1.5;
+}
+.checkbox-container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid var(--main-purple);
+    border-radius:2px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: var(--placeholder-color);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--main-purple);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 3px;
+    width: 7px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.edit-pen-icon, .trash-icon{
+    display: none;
+    width: 30px;
+    height: 13px;
+    scale: 1.4;
+    transition: scale 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.edit-pen-icon:hover{
+    filter: brightness(0) saturate(100%) invert(41%) sepia(51%) saturate(3747%) hue-rotate(226deg) brightness(99%) contrast(106%);
+    scale: 1.7;
+}
+.trash-icon:hover{
+    filter: brightness(0) saturate(100%) invert(10%) sepia(98%) saturate(7498%) hue-rotate(16deg) brightness(95%) contrast(115%);
+    scale: 1.7;
+}

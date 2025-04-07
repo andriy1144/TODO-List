@@ -4,7 +4,7 @@
     <div class="head">
         <h1>TODO LIST</h1>
         <div class="search-field">
-            <input class="search" type="text" name="search-note" placeholder="Search task...">
+            <input class="search" type="text" name="search-note" placeholder="Search note...">
             <select class="select" name="filter-note" id="filter">
                 <option value="all" selected>ALL</option>
                 <option value="complete">COMPLETE</option>
@@ -14,12 +14,25 @@
         </div>
     </div>
 
-    <% if(locals.project){ %>
+    <% if(locals.projects){ %>
     <div class="projects-list">
         <div class="projects">
+            <% for(let project of projects) {%>
             <div class="project">
+                <label class="checkbox-container">
+                    <%= project.name %>
+                    <% if(project.isDone) {%>
+                        <input type="checkbox" checked="checked">
+                    <%}else{ %>
+                        <input type="checkbox"> 
+                    <% } %>
+                    <span class="checkmark"></span>
+                </label>
 
+                <img class="edit-pen-icon" src="/static/icons/pen.svg" alt="Edit pen icon!">
+                <img class="trash-icon" src="/static/icons/trash.svg" alt="Trash icon!">
             </div>
+            <% } %>
         </div>
     </div>
     <% }else{ %>
