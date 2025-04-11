@@ -89,16 +89,8 @@ table {
     text-align: center;
     margin-bottom: 25px;
 }
-
-.search-field{
-    display: flex;
-    gap: 15px;
+.input-field{
     width: 100%;
-}
-
-.search{
-    flex: 2;
-    flex-shrink: 1;
 
     height: 40px;
     outline: none;
@@ -111,14 +103,24 @@ table {
     font-family: var(--inter-font);
     font-style: normal;
 
+    color:var(--main-purple);
+}
+
+.input-field::placeholder{
+    color: var(--placeholder-color);
+}
+.search-field{
+    display: flex;
+    gap: 15px;
+}
+
+.search{
+    flex: 2;
+    flex-shrink: 1;
+
     background-image: url("/static/icons/search.svg");
     background-repeat: no-repeat;
     background-position: 98%, center;
-
-    color:var(--main-purple);
-}
-.search::placeholder{
-    color: var(--placeholder-color);
 }
 .select{
     width: 85px;
@@ -280,4 +282,76 @@ table {
     justify-content: center;
     align-items: center;
 
+}
+
+/* MODAL STYLING */
+.modal-container{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: rgba(37, 37, 37, 0.7);
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.modal{
+    width: 500px;
+    height: 300px;
+    
+    background-color: var(--white);
+    border-radius: 16px;
+
+    font-family: var(--konit-font);
+
+    padding: 18px 31px;
+
+    margin-top: 120px;
+}
+
+.modal-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-form-title{
+    margin-bottom: 30px;
+    text-align: center;
+    
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.form-actions{
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-btn{
+    font-size: 18px;
+    font-weight: 600;
+
+    width: 120px;
+    height: 45px;
+
+    border-radius: 5px;
+    border: 1px solid var(--main-purple);
+}
+
+.apply{
+    background-color: var(--main-purple);
+    color: var(--white)
+}
+
+.cancel{
+    color:var(--main-purple);
 }

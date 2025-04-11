@@ -4,7 +4,7 @@
     <div class="head">
         <h1>TODO LIST</h1>
         <div class="search-field">
-            <input class="search" type="text" name="search-note" placeholder="Search note...">
+            <input class="search input-field" type="text" name="search-note" placeholder="Search note...">
             <select class="select" name="filter-note" id="filter">
                 <option value="all" selected>ALL</option>
                 <option value="complete">COMPLETE</option>
@@ -42,9 +42,26 @@
         </div>
     <% } %>
 
-    <div class="add-btn-container">
+    <div class="add-btn-container" id="model-trigger-btn">
         <img class="plus-icon" src="/static/icons/plus.svg" alt="Plus icon!">
     </div>
 </section>
 
+
+<div class="modal-container">
+    <div class="modal">
+        <form class="modal-form" action="#">
+            <label class="main-form-title" for="projectName">NEW TASK</label>
+            <input name="projectName" id="projectName" type="text" class="input-field" placeholder="Input your task...">
+            
+            <div class="form-actions">
+                <input class="modal-btn cancel" type="submit" value="CANCEL">
+                <input class="modal-btn apply" type="submit" value="APPLY">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script src="/static/homeScript.js"></script>
 <%- include("partials/footer.ejs") %>
