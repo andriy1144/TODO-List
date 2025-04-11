@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
+import { addNewTask, getAllData } from "./Services/TaskService.js";
 
 //Congiration of env
 dotenv.config();
@@ -13,27 +14,15 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-// TEST DATA
-const customProjects = [
-    {
-        name: "Note #1",
-        isDone:false,
-    },
-    {
-        name: "Note #2",
-        isDone:true,
-    },
-    {
-        name: "Note #3",
-        isDone:false,
-    }
-]
-
 //Requests
 app.get("/", (req,res) => {
-    res.render("home.ejs", {pageTitle: "Homepage", projects: customProjects});
+    res.render("home.ejs", {pageTitle: "Homepage", projects: getAllData()});
 });
 
+app.post("/newTask", (req,res) => {
+    addNewTask(req.body.projectName);
+    res.redirect("/");
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
