@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
-import { getAllProjects } from "./Services/ProjectAPIService.js";
+import { addNewProject, getAllProjects } from "./Services/ProjectAPIService.js";
 
 //Congiration of env
 dotenv.config();
@@ -24,9 +24,13 @@ app.get("/", async (req,res) => {
     }
 });
 
-app.post("/newTask", (req,res) => {
-    addNewTask(req.body.projectName);
-    res.redirect("/");
+app.post("/newProject", async (req,res) => {
+    try{
+        const response = await addNewProject(req.body);
+        res.status(response.status).redirect("/");
+    }catch(err){
+        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+    }
 });
 
 app.listen(port, () => {
