@@ -20,7 +20,7 @@
             <% for(let project of projects) {%>
             <div class="project">
                 <label class="checkbox-container">
-                    <% if(project.isDone) {%>
+                    <% if(project.is_archived) {%>
                         <input type="checkbox" checked="checked">
                     <%}else{ %>
                         <input type="checkbox"> 

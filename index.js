@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
-import { addNewTask, getAllData } from "./Services/TaskService.js";
+import { getAllProjects } from "./Services/ProjectAPIService.js";
 
 //Congiration of env
 dotenv.config();
@@ -15,8 +15,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 //Requests
-app.get("/", (req,res) => {
-    res.render("home.ejs", {pageTitle: "Homepage", projects: getAllData()});
+app.get("/", async (req,res) => {
+    try{
+        const projects = await getAllProjects();
+        res.render("home.ejs", {pageTitle: "Homepage", projects: projects});
+    }catch(err){
+        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+    }
 });
 
 app.post("/newTask", (req,res) => {
