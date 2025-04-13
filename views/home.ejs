@@ -20,12 +20,12 @@
             <% for(let project of projects) {%>
             <div class="project">
                 <label class="checkbox-container">
-                    <%= project.name %>
                     <% if(project.isDone) {%>
                         <input type="checkbox" checked="checked">
                     <%}else{ %>
                         <input type="checkbox"> 
                     <% } %>
+                    <span class="checkbox-label"><%= project.name %></span>
                     <span class="checkmark"></span>
                 </label>
 

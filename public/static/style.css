@@ -237,6 +237,11 @@ table {
 .checkbox-container input:checked ~ .checkmark:after {
     display: block;
 }
+.checkbox-container input:checked ~ .checkbox-label {
+    color: rgba(25,25, 25, 0.5);
+    text-decoration: line-through;
+}
+
 
 .checkbox-container .checkmark:after {
     left: 9px;
