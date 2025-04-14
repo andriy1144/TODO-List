@@ -104,11 +104,17 @@ table {
     font-style: normal;
 
     color:var(--main-purple);
+
+    transition: filter 0.3s ease-in-out;
 }
 
 .input-field::placeholder{
     color: var(--placeholder-color);
 }
+.input-field:focus{
+    filter:drop-shadow(0px 0px 4px #6C63FF);
+}
+
 .search-field{
     display: flex;
     gap: 15px;
@@ -137,6 +143,13 @@ table {
     color:white;
 
     padding: 10px;
+
+    transition: background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+.select:hover{
+    background-color: #5850dd;
+    box-shadow: 0 0 10px var(--main-purple);
 }
 .theme-changer{
     outline: none;
@@ -145,6 +158,14 @@ table {
     width: 38px;
     
     background-color: var(--main-purple);
+
+    transition: background-color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+}
+
+.theme-changer:hover{
+    background-color: #5850dd;
+    box-shadow: 0 0 10px var(--main-purple);
 }
 
 .no-note{
@@ -287,8 +308,13 @@ table {
     justify-content: center;
     align-items: center;
 
+    transition: background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
-
+.add-btn-container:hover{
+    background-color: #5850dd;
+    box-shadow: 0 0 10px var(--main-purple);
+}
 /* MODAL STYLING */
 .modal-container{
     width: 100%;

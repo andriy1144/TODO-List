@@ -12,7 +12,7 @@ const defaultHeader = {Authorization: `Bearer ${BEARER_TOKEN}`};
 export async function getAllProjects(){
     try{
         const response = await axios.get(`${API_URL}/projects`, {headers: defaultHeader});
-        return response.data.results;
+        return response.data.results.slice(1);
     }catch(err){
         console.error(`ERROR: GET getAllProjects(): \n ${err}`);
         console.error(err);
