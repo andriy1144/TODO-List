@@ -29,3 +29,13 @@ export async function addNewProject(data){
         throw err;
     }
 }
+
+export async function deleteProjectWithId(id){
+    try{
+        return await axios.delete(`${API_URL}/projects/${id}`, {headers: defaultHeader});
+    }catch(err){
+        console.error(`ERROR: DELETE deleteProjectWithId(id): \n ${err}`);
+        console.error(err);
+        throw err;
+    }
+}

@@ -30,7 +30,7 @@
                 </label>
 
                 <img class="edit-pen-icon" src="/static/icons/pen.svg" alt="Edit pen icon!">
-                <img class="trash-icon" src="/static/icons/trash.svg" alt="Trash icon!">
+                <img class="trash-icon" src="/static/icons/trash.svg" alt="Trash icon!" data-link="/projects/<%= project.id %>/delete">
             </div>
             <% } %>
         </div>
@@ -44,6 +44,10 @@
 
     <div class="add-btn-container" id="open-modal">
         <img class="plus-icon" src="/static/icons/plus.svg" alt="Plus icon!">
+    </div>
+
+    <div class="cancel-deletion">
+        <button id="cancel-btn">Cancel</button>
     </div>
 </section>
 

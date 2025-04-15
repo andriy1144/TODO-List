@@ -1,3 +1,5 @@
+const LINK = `${window.location.protocol}://${window.location.hostname}:${window.location.port}`;
+
 //ADDING MODAL WINDOW FUNCTIONALITY
 const modal = document.querySelector(".modal-container");
 const closeModal = document.querySelector("#close-modal")
@@ -10,3 +12,19 @@ openModal.addEventListener("click", () => {
 closeModal.addEventListener("click", ()=>{
     modal.classList.remove("open");
 })
+
+
+// DELETE FUNCTIONALITY
+const trashButton = document.querySelector(".trash-icon");
+const cancelButton = document.querySelector("#cancel-btn");
+const cancelButtonBlock = document.querySelector(".cancel-deletion");
+
+let deletionDelay;
+
+trashButton.addEventListener("click", () => {
+    cancelButtonBlock.classList.add("open");
+    deletionDelay = setTimeout(() => {
+        console.log(trashButton.dataset.link);
+        fetch(`${LINK}/projects/${trashButton.dataset.link}/delete`);
+    },5000);
+});
