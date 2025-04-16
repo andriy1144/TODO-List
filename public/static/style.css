@@ -53,6 +53,7 @@ table {
 :root{
     --konit-font: "Kanit", sans-serif;
     --inter-font: "Inter", sans-serif;
+    --raleway-font: "Raleway", sans-serif;
 
     --main-purple: #6C63FF;
     --white: #F7F7F7;
@@ -396,11 +397,68 @@ table {
 }
 
 /* TEST DELETION AREA */
-.cancel-deletion{
+.undo-deletion{
     opacity: 0;
     z-index: -9999;
+
+    font-family: var(--raleway-font);
+
+    width: 180px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    background-color: #534CC2;
+    padding: 10px;
+
+    border-radius: 4px;
 }
-.cancel-deletion.open{
+.undo-deletion:hover{
+    background-color: #5850dd;
+    box-shadow: 0 0 10px var(--main-purple);
+}
+.undo-deletion.open{
     opacity: 1;
     z-index: 1;
 }
+
+#undo-text{
+    color:var(--white)
+}
+
+#undo-text::after{
+    content: url("/static/icons/undo.svg");
+    display: inline-block;
+    scale: 1.5;
+    position: relative;
+    left: 10px;
+    bottom: 3px;
+}
+
+/* TIMER ELEMENT */
+.timer-container {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+  }
+  
+  .progress-ring {
+    flex-shrink: 0;
+  }
+  
+  .timer-text {
+    /* margin-left: 10px; */
+    position: relative;
+    left: -26px;
+    top: -2px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  

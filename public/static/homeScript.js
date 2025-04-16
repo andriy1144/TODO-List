@@ -16,8 +16,7 @@ closeModal.addEventListener("click", ()=>{
 
 // DELETE FUNCTIONALITY
 const trashButton = document.querySelector(".trash-icon");
-const cancelButton = document.querySelector("#cancel-btn");
-const cancelButtonBlock = document.querySelector(".cancel-deletion");
+const cancelButtonBlock = document.querySelector(".undo-deletion");
 
 let deletionDelay;
 
