@@ -411,7 +411,20 @@ table {
     padding: 10px;
 
     border-radius: 4px;
+
+    position: fixed;
+    top: 89vh;
+
+    animation: appear-undo-animation 0.3s forwards ease-in;
 }
+
+@keyframes appear-undo-animation {
+    from{
+        top: 90vh;
+        opacity: 0;
+    }
+}
+
 .undo-deletion:hover{
     background-color: #5850dd;
     box-shadow: 0 0 10px var(--main-purple);

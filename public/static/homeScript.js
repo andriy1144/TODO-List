@@ -25,9 +25,10 @@ trashButton.addEventListener("click", () => {
     deletionDelay = setTimeout(() => {
         console.log(trashButton.dataset.link);
         fetch(`${LINK}/projects/${trashButton.dataset.link}/delete`);
-    },6000);
+    },6500);
 });
 
+// UNDO BUTTON CREATION
 function createUndoButton(){
     const undoDeletion = document.createElement('div');
     undoDeletion.className = 'undo-deletion';
