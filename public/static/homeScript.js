@@ -1,4 +1,4 @@
-const LINK = `${window.location.protocol}://${window.location.hostname}:${window.location.port}`;
+const LINK = `${window.location.protocol}`;
 
 //ADDING MODAL WINDOW FUNCTIONALITY
 const modal = document.querySelector(".modal-container");
@@ -14,17 +14,35 @@ closeModal.addEventListener("click", ()=>{
 })
 
 
+
+
+// ----------------------------------------------------
 // DELETE FUNCTIONALITY
 const trashButton = document.querySelector(".trash-icon");
-const cancelButtonBlock = document.querySelector(".undo-deletion");
 
 let deletionDelay;
+let isExist = false;
+
+let currUndoDeletionBlock;
+let currPorject;
 
 trashButton.addEventListener("click", () => {
-    createUndoButton();
+    if(isExist) return;
+
+    currUndoDeletionBlock = createUndoButton();
+    currPorject = trashButton.parentElement;
+
+    currPorject.style.display = "none";
+
+    isExist = true;
+
     deletionDelay = setTimeout(() => {
         console.log(trashButton.dataset.link);
-        fetch(`${LINK}/projects/${trashButton.dataset.link}/delete`);
+        fetch(`${LINK}projects/${trashButton.dataset.link}/delete`, {method:"DELETE"});
+
+        currUndoDeletionBlock.remove();
+        currPorject.remove();
+        isExist = false;
     },6500);
 });
 
@@ -70,4 +88,13 @@ function createUndoButton(){
     document.querySelector(".container").appendChild(undoDeletion);
 
     startCircleAnimation();
+
+    undoDeletion.addEventListener("click", () => {
+        undoDeletion.remove();
+        clearTimeout(deletionDelay);
+        currPorject.style.display = "flex";
+        isExist = false;
+    })
+
+    return undoDeletion;
 }
