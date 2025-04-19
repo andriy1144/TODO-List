@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <% if(locals.projects){ %>
+    <% if(locals.projects && locals.projects.length > 0){ %>
     <div class="projects-list">
         <div class="projects">
             <% for(let project of projects) {%>
@@ -64,6 +64,7 @@
     </div>
 </div>
 
+<script src="/static/deletionLogic.js"></script>
 <script src="/static/homeScript.js"></script>
 <script src="/static/animation.js"></script>
 <%- include("partials/footer.ejs") %>
