@@ -19,13 +19,13 @@
         <div class="projects">
             <% for(let project of projects) {%>
             <div class="project">
-                <label class="checkbox-container">
-                    <% if(project.is_archived) {%>
+                <label class="checkbox-container" data-link="<%= project.id %>">
+                    <% if(project.name.split("|")[1] == "true") {%>
                         <input type="checkbox" checked="checked">
                     <%}else{ %>
                         <input type="checkbox"> 
                     <% } %>
-                    <span class="checkbox-label"><%= project.name %></span>
+                    <span class="checkbox-label"><%= project.name.split("|")[0] %></span>
                     <span class="checkmark"></span>
                 </label>
 

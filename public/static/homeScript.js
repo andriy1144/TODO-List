@@ -10,3 +10,15 @@ openModal.addEventListener("click", () => {
 closeModal.addEventListener("click", ()=>{
     modal.classList.remove("open");
 });
+
+
+// CHECKING TASK
+const projectLabels = document.querySelectorAll(".checkbox-container");
+
+if(projectLabels.length > 0){
+    projectLabels.forEach((project) => {
+        project.addEventListener("click", () => {
+            fetch(`${BASE_LINK}projects/${project.dataset.link}/checked`);
+        });
+    });
+}
