@@ -13,12 +13,13 @@ closeModal.addEventListener("click", ()=>{
 
 
 // CHECKING TASK
-const projectLabels = document.querySelectorAll(".checkbox-container");
+const checkboxes = document.querySelectorAll(".checkbox-container input[type='checkbox']");
 
-if(projectLabels.length > 0){
-    projectLabels.forEach((project) => {
-        project.addEventListener("click", () => {
-            fetch(`${BASE_LINK}projects/${project.dataset.link}/checked`);
-        });
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", (e) => {
+        const label = checkbox.closest(".checkbox-container");
+        const id = label.dataset.link;
+
+        fetch(`${BASE_LINK}projects/${id}/checked`);
     });
-}
+});
