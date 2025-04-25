@@ -205,6 +205,10 @@ table {
     border-bottom: 1px solid var(--placeholder-color);
     position: relative;
 }
+
+.project:nth-last-child(1) {
+    border-bottom: none;
+}
 .project:hover > .edit-pen-icon,
 .project:hover > .trash-icon {
     display: block;
