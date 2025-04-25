@@ -203,6 +203,7 @@ table {
     align-items: center;
     height: 70px;
     border-bottom: 1px solid var(--placeholder-color);
+    position: relative;
 }
 .project:hover > .edit-pen-icon,
 .project:hover > .trash-icon {
@@ -468,3 +469,11 @@ table {
     font-weight: bold;
   }
   
+/* CIRCLE STYLING */
+.spining-circle{
+    width: 55px;
+    height: 55px;
+
+    position: absolute;
+    right: -65px;
+}
