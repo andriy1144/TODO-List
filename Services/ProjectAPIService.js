@@ -85,11 +85,11 @@ function changeStatus(projectStatus){
 
 export async function editProject(id, newProjectData){
     try{
-        //Getting project by id
+        if(!newProjectData.name) throw Error("ERROR: EDIT editProject(id, newPorjectData) Empty name value!");
         let project = await getProjectById(id);
 
         let updatedProject = {
-            name: changeName(project.data.name,newProjectData.name),
+            name: changeName(project.data.name, newProjectData.name),
             description: newProjectData.description || project.data.description,
             color: project.data.color,
             is_favorite: newProjectData.is_favorite || project.data.is_favorite,

@@ -22,7 +22,6 @@ checkboxes.forEach((checkbox) => {
         const id = label.dataset.link;
 
         fetch(`${BASE_LINK}projects/${id}/checked`).then((res) => {
-            console.log("Response status:" + res.status);
             cleanUp(label, spiningWheel);
         });
     });

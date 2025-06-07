@@ -28,7 +28,11 @@
                     <span class="checkbox-label"><%= project.name.split("|")[0] %></span>
                     <span class="checkmark"></span>
                 </label>
-
+                
+                <div id="project-<%= project.id %>-input-field" class="project-input-block">
+                    <input type="text" class="project-input-field" name="project-name" value="<%= project.name.split("|")[0] %>">
+                </div>
+                
                 <img class="edit-pen-icon" src="/static/icons/pen.svg" alt="Edit pen icon!" data-link="<%= project.id %>">
                 <img class="trash-icon" src="/static/icons/trash.svg" alt="Trash icon!" data-link="<%= project.id %>">
             </div>
@@ -64,7 +68,9 @@
     </div>
 </div>
 
-<script src="/static/deletionLogic.js"></script>
+
 <script src="/static/homeScript.js"></script>
 <script src="/static/animation.js"></script>
+<script src="/static/deletionLogic.js"></script>
+<script src="/static/editLogic.js"></script>
 <%- include("partials/footer.ejs") %>

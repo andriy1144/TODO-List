@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
-import bodyParser from "body-parser";
+
 import { addNewProject, 
          deleteProjectWithId, 
          getAllProjects, 
@@ -15,8 +15,7 @@ const app = express();
 app.use(express.static("public"));
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.urlencoded({extended:true}));
-
+app.use(express.json());
 
 //Requests
 app.get("/", async (req,res) => {
@@ -57,14 +56,13 @@ app.get("/projects/:id/checked", async (req,res) => {
 });
 
 app.patch("/projects/:id/edit", async (req,res) => {
-    console.log(`Server has just got edit request on ${req.params.id}`)
     try{
         const newPrjectData = req.body;
         const id = req.params.id;
         const response = await editProject(id, newPrjectData);
         res.sendStatus(response.status);
     }catch(err){
-        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status})
+        res.status(400).render("error.ejs", {errorName: err.response?.data.error, errorStatusCode: err.response?.status})
     }
 });
 
