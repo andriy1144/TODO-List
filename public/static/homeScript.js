@@ -21,7 +21,6 @@ checkboxes.forEach((checkbox) => {
         const spiningWheel = handleCheckingTimeout(label);
         const id = label.dataset.link;
 
-        label.insertAdjacentElement
         fetch(`${BASE_LINK}projects/${id}/checked`).then((res) => {
             console.log("Response status:" + res.status);
             cleanUp(label, spiningWheel);

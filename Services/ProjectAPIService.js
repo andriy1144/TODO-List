@@ -82,3 +82,28 @@ function changeStatus(projectStatus){
     let currProjectStatus = projectStatus.split("|")[1];
     return currProjectStatus === "true" ? `${projectStatus.split("|")[0]}|false` : `${projectStatus.split("|")[0]}|true`;
 }
+
+export async function editProject(id, newProjectData){
+    try{
+        //Getting project by id
+        let project = await getProjectById(id);
+
+        let updatedProject = {
+            name: changeName(project.data.name,newProjectData.name),
+            description: newProjectData.description || project.data.description,
+            color: project.data.color,
+            is_favorite: newProjectData.is_favorite || project.data.is_favorite,
+            view_style: project.data.view_style
+        }
+
+        return await axios.post(`${API_URL}/projects/${id}`, updatedProject, {headers: defaultHeader});
+    }catch(error){
+        console.error(`ERROR: EDIT editProject(id,newProjectData) ${error}`);
+        throw error;
+    }
+}
+
+function changeName(currProjectName,newName){
+    let separatedProjectName = currProjectName.split("|");
+    return `${newName}|${separatedProjectName[1]}`
+}

@@ -1,7 +1,11 @@
 import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
-import { addNewProject, deleteProjectWithId, getAllProjects, updateProjectStatus } from "./services/ProjectAPIService.js";
+import { addNewProject, 
+         deleteProjectWithId, 
+         getAllProjects, 
+         updateProjectStatus,
+         editProject } from "./services/ProjectAPIService.js";
 
 //Congiration of env
 dotenv.config();
@@ -43,12 +47,24 @@ app.delete("/projects/:id/delete", async (req,res) => {
 });
 
 app.get("/projects/:id/checked", async (req,res) => {
-    console.log("Check with id: " + req.params.id);
+    // console.log("Check with id: " + req.params.id);
     try{
         const response = await updateProjectStatus(req.params.id);
         res.sendStatus(response.status);
     }catch(err){
         res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+    }
+});
+
+app.patch("/projects/:id/edit", async (req,res) => {
+    console.log(`Server has just got edit request on ${req.params.id}`)
+    try{
+        const newPrjectData = req.body;
+        const id = req.params.id;
+        const response = await editProject(id, newPrjectData);
+        res.sendStatus(response.status);
+    }catch(err){
+        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status})
     }
 });
 
