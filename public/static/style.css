@@ -61,6 +61,28 @@ table {
     --placeholder-color: #C3C1E5;
 }
 
+html{
+    --bg-color: #fff;
+    --modal-border-color: #fff;
+
+    --placeholder-color: #C3C1E5;
+
+    --text-color: #252525;
+    --checked-task-color: rgba(25,25,25,0.5);
+    --input-bg-color: #fff;
+}
+
+html[data-theme="dark-theme"]{
+    --bg-color: #252525;
+    --modal-border-color: var(--main-purple); 
+    
+    --placeholder-color: #6C63FF;
+
+    --text-color: #F7F7F7;
+    --checked-task-color: rgba(255,255,255,0.5);
+    --input-bg-color: #252525;
+}
+
 ::selection{
     background-color:var(--main-purple);
     color: var(--white);
@@ -69,6 +91,11 @@ table {
     cursor: url("/static/icons/cursor-pointer.png"), auto;
 }
 /* Homepage styles */
+body{
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
 .container{
     position: relative;
 
@@ -105,6 +132,7 @@ table {
     font-style: normal;
 
     color:var(--main-purple);
+    background-color: var(--input-bg-color);
 
     transition: filter 0.3s ease-in-out;
 }
@@ -274,7 +302,7 @@ table {
     display: block;
 }
 .checkbox-container input:checked ~ .checkbox-label {
-    color: rgba(25,25, 25, 0.5);
+    color: var(--checked-task-color);
     text-decoration: line-through;
 }
 
@@ -356,10 +384,12 @@ table {
 }
 
 .modal{
+    border: 1px solid var(--modal-border-color);
+
     width: 500px;
     height: 300px;
     
-    background-color: var(--white);
+    background-color: var(--bg-color);
     border-radius: 16px;
 
     font-family: var(--konit-font);
@@ -405,7 +435,8 @@ table {
 }
 
 .cancel{
-    color:var(--main-purple);
+    color: var(--main-purple);
+    background-color: var(--bg-color);
 }
 
 .modal-container.open{
