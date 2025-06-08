@@ -238,6 +238,15 @@ table {
     width: 0;
 }
 
+.checkbox-container .checkbox-label{
+    width: 70%;
+    max-width: 30ch;
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -281,13 +290,6 @@ table {
     transform: rotate(45deg);
 }
 
-.checkbox-label{
-    text-overflow: ellipsis;
-
-    white-space: nowrap;
-    overflow: hidden;
-}
-
 .edit-pen-icon, .trash-icon{
     display: none;
     width: 30px;
@@ -298,6 +300,10 @@ table {
 
 .edit-pen-icon:hover{
     filter: brightness(0) saturate(100%) invert(41%) sepia(51%) saturate(3747%) hue-rotate(226deg) brightness(99%) contrast(106%);
+    scale: 1.7;
+}
+.edit-pen-icon[src='/static/icons/success.svg']:hover {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(35%) saturate(6996%) hue-rotate(81deg) brightness(111%) contrast(116%);
     scale: 1.7;
 }
 .trash-icon:hover{
