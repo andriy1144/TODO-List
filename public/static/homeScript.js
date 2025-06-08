@@ -64,3 +64,33 @@ function cleanUp(label, spiningWheel){
     label.querySelector("input").removeAttribute("disabled");
     spiningWheel.remove();
 }
+
+// SEARCHING BAR FUNCTIONALITY
+function search(name){
+    const formattedName = formatStringToSearch(name);
+    const projects = getAllProjects();
+    findMathchedProjects(formattedName, projects);
+}
+
+function formatStringToSearch(str){
+    const strParts = str.split(" ");
+    return strParts.map((str) => str.trim())
+                   .filter((str) => str !== "")
+                   .join("").trim().toLowerCase();
+}
+
+function findMathchedProjects(name, projects){
+    projects.forEach((project) => {
+        const projectLabel = project.querySelector(".checkbox-label").textContent;
+        const formattedProjectLabel = formatStringToSearch(projectLabel);
+        if(name === "" || formattedProjectLabel.startsWith(name)){
+            project.style.display = "flex"
+        }else{
+            project.style.display = "none"
+        }
+    }); 
+}
+
+function getAllProjects(){
+    return document.querySelectorAll(".project");
+}
