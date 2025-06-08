@@ -94,6 +94,7 @@ html[data-theme="dark-theme"]{
 body{
     color: var(--text-color);
     background-color: var(--bg-color);
+    transition: all 0.2s ease-in-out
 }
 
 .container{

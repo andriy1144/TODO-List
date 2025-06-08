@@ -3,6 +3,10 @@ const modal = document.querySelector(".modal-container");
 const closeModal = document.querySelector("#close-modal");
 const openModal = document.querySelector("#open-modal");
 
+onload = () => {
+    if(localStorage.getItem("theme")) document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
+}
+
 openModal.addEventListener("click", () => {
     modal.classList.add("open");
 });
@@ -26,6 +30,25 @@ function toUrlEncoded(details){
     formBody = formBody.join("&");
 
     return formBody;
+}
+
+// THEME CHANGER
+const themeChangerBtn = document.querySelector(".theme-changer");
+themeChangerBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    handleThemeChanging();
+});
+
+function handleThemeChanging(){
+    const documentPage = document.documentElement;
+    if(!documentPage.getAttribute("data-theme")) {
+        documentPage.setAttribute("data-theme", "dark-theme");
+        window.localStorage.setItem("theme", "dark-theme");
+    }
+    else {
+        documentPage.removeAttribute("data-theme");
+        window.localStorage.removeItem("theme");
+    }
 }
 
 // CHECKING TASK
