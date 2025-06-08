@@ -4,7 +4,10 @@ const closeModal = document.querySelector("#close-modal");
 const openModal = document.querySelector("#open-modal");
 
 onload = () => {
-    if(localStorage.getItem("theme")) document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
+    if(localStorage.getItem("theme")) {
+        document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
+        themeChangerBtn.firstChild.setAttribute("src", sunIconSrc);
+    }
 }
 
 openModal.addEventListener("click", () => {
@@ -34,6 +37,9 @@ function toUrlEncoded(details){
 
 // THEME CHANGER
 const themeChangerBtn = document.querySelector(".theme-changer");
+const moonIconSrc = "/static/icons/moon.svg";
+const sunIconSrc = "/static/icons/sun.svg";
+
 themeChangerBtn.addEventListener("click", (e) => {
     e.preventDefault();
     handleThemeChanging();
@@ -44,10 +50,12 @@ function handleThemeChanging(){
     if(!documentPage.getAttribute("data-theme")) {
         documentPage.setAttribute("data-theme", "dark-theme");
         window.localStorage.setItem("theme", "dark-theme");
+        themeChangerBtn.firstChild.setAttribute("src", sunIconSrc);
     }
     else {
         documentPage.removeAttribute("data-theme");
         window.localStorage.removeItem("theme");
+        themeChangerBtn.firstChild.setAttribute("src", moonIconSrc);
     }
 }
 
