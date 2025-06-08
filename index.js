@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import bodyParser from "body-parser";
 
 import { addNewProject, 
          deleteProjectWithId, 
@@ -15,7 +16,7 @@ const app = express();
 app.use(express.static("public"));
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //Requests
 app.get("/", async (req,res) => {
@@ -32,7 +33,7 @@ app.post("/newProject", async (req,res) => {
         const response = await addNewProject(req.body);
         res.status(response.status).redirect("/");
     }catch(err){
-        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+        res.render("error.ejs", {errorName: err.response?.data.error, errorStatusCode: err.response?.status});
     }
 });
 
@@ -41,7 +42,7 @@ app.delete("/projects/:id/delete", async (req,res) => {
         const response = await deleteProjectWithId(req.params.id);
         res.sendStatus(response.status);
     }catch(err){
-        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+        res.render("error.ejs", {errorName: err.response?.data.error, errorStatusCode: err.response?.status});
     }
 });
 
@@ -51,7 +52,7 @@ app.get("/projects/:id/checked", async (req,res) => {
         const response = await updateProjectStatus(req.params.id);
         res.sendStatus(response.status);
     }catch(err){
-        res.render("error.ejs", {errorName: err.response.data.error, errorStatusCode: err.response.status});
+        res.render("error.ejs", {errorName: err.response?.data.error, errorStatusCode: err.response?.status});
     }
 });
 

@@ -21,16 +21,16 @@
             <div class="project">
                 <label class="checkbox-container" data-link="<%= project.id %>">
                     <% if(project.name.split("|")[1] == "true") {%>
-                        <input type="checkbox" checked="checked">
+                        <input id="<%= project.id %>" type="checkbox" checked="checked">
                     <%}else{ %>
-                        <input type="checkbox"> 
+                        <input id="<%= project.id %>" type="checkbox"> 
                     <% } %>
                     <span class="checkbox-label"><%= project.name.split("|")[0] %></span>
                     <span class="checkmark"></span>
                 </label>
                 
                 <div id="project-<%= project.id %>-input-field" class="project-input-block">
-                    <input type="text" class="project-input-field" name="project-name" value="<%= project.name.split("|")[0] %>">
+                    <input type="text" class="project-input-field" name="project-name" value="<%= project.name.split("|")[0] %>" autocomplete="off">
                 </div>
                 
                 <img class="edit-pen-icon" src="/static/icons/pen.svg" alt="Edit pen icon!" data-link="<%= project.id %>">
@@ -55,9 +55,9 @@
 
 <div class="modal-container">
     <div class="modal">
-        <form class="modal-form" action="/newProject" method="post">
+        <form class="modal-form" action="/newProject" method="post" onsubmit="return formValidation(this)">
             <label class="main-form-title" for="name">NEW PROJECT</label>
-            <input id="name" name="name" id="projectName" type="text" class="input-field" placeholder="Input your task...">
+            <input id="name" name="name" id="projectName" type="text" class="input-field" placeholder="Input your task..." autocomplete="off" required>
             
             <div class="form-actions">
                 <input class="modal-btn cancel" id="close-modal" type="button" value="CANCEL">

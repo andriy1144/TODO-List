@@ -11,6 +11,22 @@ closeModal.addEventListener("click", ()=>{
     modal.classList.remove("open");
 });
 
+function formValidation(form){
+    const name = form.name.value.trim();
+    return name !== "" && name && name != undefined;
+}
+
+function toUrlEncoded(details){
+    let formBody = [];
+    for (var property in details) {
+    let encodedKey = encodeURIComponent(property);
+    let encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+    return formBody;
+}
 
 // CHECKING TASK
 const checkboxes = document.querySelectorAll(".checkbox-container input[type='checkbox']");

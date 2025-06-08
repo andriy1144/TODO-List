@@ -269,7 +269,6 @@ table {
     text-decoration: line-through;
 }
 
-
 .checkbox-container .checkmark:after {
     left: 9px;
     top: 3px;
@@ -280,6 +279,13 @@ table {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.checkbox-label{
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .edit-pen-icon, .trash-icon{
