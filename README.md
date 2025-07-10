@@ -31,7 +31,7 @@ Designed for quick setup, clean interface, and smooth communication with the ext
    ```
    bash
    
-   git clone https://github.com/your-username/todo-list-app.git
+   git clone https://github.com/andriy1144/TODO-List.git
    
    cd TODO-List 
    ```
